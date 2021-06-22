@@ -161,9 +161,10 @@ class DnnSegmenter:
                 continue
 
             l = stop - start
-            r = rawpred[:l] 
+            r = rawpred[:l]
             rawpred = rawpred[l:]
             r[finite[start:stop] == False, :] = 0.5
+            print("Log of rawpred: ", np.log(r))
             pred = viterbi_decoding(np.log(r), diag_trans_exp(self.viterbi_arg, len(self.outlabels)))
             print("Pred: ", pred)
             for lab2, start2, stop2 in _binidx2seglist(pred):
