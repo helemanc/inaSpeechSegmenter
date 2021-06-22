@@ -70,18 +70,22 @@ def _binidx2seglist(binidx):
     """
     ss._binidx2seglist((['f'] * 5) + (['bbb'] * 10) + ['v'] * 5)
     Out: [('f', 0, 5), ('bbb', 5, 15), ('v', 15, 20)]
-    
+
     #TODO: is there a pandas alternative??
     """
+
+    print("BINIDIX: ", binidx)
     curlabel = None
     bseg = -1
     ret = []
     for i, e in enumerate(binidx):
+        print("I, E, CURLABLE ", i, e, curlabel)
         if e != curlabel:
             if curlabel is not None:
                 ret.append((curlabel, bseg, i))
             curlabel = e
             bseg = i
+            print("BSEG: ", bseg )
     ret.append((curlabel, bseg, i + 1))
     return ret
 
