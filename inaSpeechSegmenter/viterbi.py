@@ -205,8 +205,6 @@ def viterbi_decoding(emission, transition,
         # (find among all possible states at this time t)
         P[t, :] = np.argmax(tmp, axis=0)
 
-        print("P[t,:]", P[t,:])
-
         # update V for time t
         V[t, :] = emission[t, :] + tmp[P[t, :], states]
 
