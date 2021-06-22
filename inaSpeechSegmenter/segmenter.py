@@ -73,8 +73,8 @@ def _binidx2seglist(binidx):
 
     #TODO: is there a pandas alternative??
     """
-
-    print("BINIDIX: ", binidx)
+    print("*************** I am in binidx2seglist ****************")
+    print("BINIDX: ", binidx)
     curlabel = None
     bseg = -1
     ret = []
