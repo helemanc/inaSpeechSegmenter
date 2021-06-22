@@ -95,7 +95,7 @@ def _binidx2seglist(binidx):
             count_threshold = 0
             bseg = i
             #print("Bseg: ", bseg )
-        if i == len(binidx)-1:
+        #if i == len(binidx)-1:
             #print("Curr label: ", curlabel, "Count threshold: ", count_threshold)
 
     ret.append((curlabel, bseg, i + 1))
