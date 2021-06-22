@@ -38,7 +38,7 @@ import random
 from skimage.util import view_as_windows as vaw
 
 
-from viterbi import viterbi_decoding
+from .viterbi import viterbi_decoding
 from .viterbi_utils import pred2logemission, diag_trans_exp, log_trans_exp
 
 from .features import media2feats
