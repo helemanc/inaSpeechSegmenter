@@ -79,7 +79,7 @@ def _binidx2seglist(binidx):
     curlabel = None
     bseg = -1
     ret = []
-    count_threhsold = 0
+    count_threshold = 0
     for i, e in enumerate(binidx):
         #print("i: ", i)
         #print("e: ",e)
