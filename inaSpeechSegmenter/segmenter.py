@@ -89,8 +89,8 @@ def _binidx2seglist(binidx):
             if curlabel is not None:
                 ret.append((curlabel, bseg, i))
             curlabel = e
-            print("Curr label: ", curlabel, "Count threshold: ", count_threhsold)
-            count_threhsold = 0
+            print("Curr label: ", curlabel, "Count threshold: ", count_threshold)
+            count_threshold = 0
             bseg = i
             print("Bseg: ", bseg )
     ret.append((curlabel, bseg, i + 1))
