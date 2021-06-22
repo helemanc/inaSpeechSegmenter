@@ -175,7 +175,7 @@ class DnnSegmenter:
                     diff_speech_noise = abs(el[0]-el[2])
                     diff_music_noise = abs(el[1] - el[2])
                 '''
-                diff_speech_noise = abs(np.log(el[0])- np.log(el[2]))
+                diff_speech_noise = np.log(el[0])- np.log(el[2])
                 differences_speech_noise.append(diff_speech_noise)
 
             print(differences_speech_noise)
