@@ -74,18 +74,21 @@ def _binidx2seglist(binidx):
     #TODO: is there a pandas alternative??
     """
     print("*************** I am in binidx2seglist ****************")
-    print("BINIDX: ", binidx)
+    print("Binidx input: ", binidx)
+    print("Len binidx input", len(binidx))
     curlabel = None
     bseg = -1
     ret = []
     for i, e in enumerate(binidx):
-        print("I, E, CURLABLE ", i, e, curlabel)
+        print("i: ", i)
+        print("e: ",e)
+        print("Current label: ", curlabel)
         if e != curlabel:
             if curlabel is not None:
                 ret.append((curlabel, bseg, i))
             curlabel = e
             bseg = i
-            print("BSEG: ", bseg )
+            print("Bseg: ", bseg )
     ret.append((curlabel, bseg, i + 1))
     return ret
 
