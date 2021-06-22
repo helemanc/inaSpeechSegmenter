@@ -73,9 +73,9 @@ def _binidx2seglist(binidx):
 
     #TODO: is there a pandas alternative??
     """
-    print("*************** I am in binidx2seglist ****************")
-    print("Binidx input: ", binidx)
-    print("Len binidx input", len(binidx))
+    #print("*************** I am in binidx2seglist ****************")
+    #print("Binidx input: ", binidx)
+    #print("Len binidx input", len(binidx))
     curlabel = None
     bseg = -1
     ret = []
@@ -88,15 +88,15 @@ def _binidx2seglist(binidx):
             count_threshold +=1
 
         if e != curlabel:
-            print("Curr label: ", curlabel, "Count threshold: ", count_threshold)
+            #print("Curr label: ", curlabel, "Count threshold: ", count_threshold)
             if curlabel is not None:
                 ret.append((curlabel, bseg, i))
             curlabel = e
             count_threshold = 0
             bseg = i
-            print("Bseg: ", bseg )
+            #print("Bseg: ", bseg )
         if i == len(binidx)-1:
-            print("Curr label: ", curlabel, "Count threshold: ", count_threshold)
+            #print("Curr label: ", curlabel, "Count threshold: ", count_threshold)
 
     ret.append((curlabel, bseg, i + 1))
     return ret

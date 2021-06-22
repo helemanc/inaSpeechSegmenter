@@ -201,8 +201,6 @@ def viterbi_decoding(emission, transition,
         # transitioning from state k to state k' (at time t)
         tmp = (V[t - 1, :] + transition.T).T
 
-        print("TMP: ", tmp)
-
         # optimal path to state k at t comes from state P[t, k] at t - 1
         # (find among all possible states at this time t)
         P[t, :] = np.argmax(tmp, axis=0)
@@ -212,15 +210,12 @@ def viterbi_decoding(emission, transition,
         # update V for time t
         V[t, :] = emission[t, :] + tmp[P[t, :], states]
 
-        print("V[t,:]", V[t,:])
 
     # ~~ BACK-TRACKING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     X = np.empty((T,), dtype=int)
     X[-1] = np.argmax(V[-1, :])
-    print("X[-1] in Viterbi", X[-1])
     for t in range(1, T):
         X[-(t + 1)] = P[-t, X[-t]]
-        print("X[-(t+1)]", X[-(t + 1)])
 
     # ~~ CONVERT BACK TO ORIGINAL STATES
 
