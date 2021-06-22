@@ -152,7 +152,7 @@ class DnnSegmenter:
         if len(batch) > 0:
             batch = np.concatenate(batch)
             rawpred = self.nn.predict(batch, batch_size=self.batch_size)
-        print(rawpred)
+        #print(rawpred)
 
         ret = []
         for lab, start, stop in lseg:
@@ -164,9 +164,9 @@ class DnnSegmenter:
             r = rawpred[:l]
             rawpred = rawpred[l:]
             r[finite[start:stop] == False, :] = 0.5
-            print("Log of rawpred: ", np.log(r))
+            print("r: ", r)
             pred = viterbi_decoding(np.log(r), diag_trans_exp(self.viterbi_arg, len(self.outlabels)))
-            print("Pred: ", pred)
+            #print("Pred: ", pred)
             for lab2, start2, stop2 in _binidx2seglist(pred):
                 ret.append((self.outlabels[int(lab2)], start2+start, stop2+start))            
         return ret
