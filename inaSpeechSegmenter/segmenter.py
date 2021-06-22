@@ -168,6 +168,8 @@ class DnnSegmenter:
             print("Len of r", len(r))
 
             differences_speech_noise = []
+            count_positive_differences = 0
+            count_negative_differences = 0
             for el in r:
                 '''
                 if el[0] != el[1] and el[0] != el[2]:
@@ -176,9 +178,16 @@ class DnnSegmenter:
                     diff_music_noise = abs(el[1] - el[2])
                 '''
                 diff_speech_noise = np.log(el[0])- np.log(el[2])
+                if diff_speech_noise > 0 :
+                    count_positive_differences +=1
+                else:
+                    count_negative_differences += 1
                 differences_speech_noise.append(diff_speech_noise)
 
+
             print(differences_speech_noise)
+            print("Positive differences: ", count_positive_differences)
+            print("Negative differences: ", count_negative_differences)
 
 
             pred = viterbi_decoding(np.log(r), diag_trans_exp(self.viterbi_arg, len(self.outlabels)))
