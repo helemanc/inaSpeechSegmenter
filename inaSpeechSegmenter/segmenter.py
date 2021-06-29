@@ -200,7 +200,10 @@ class DnnSegmenter:
 
             for lab2, start2, stop2 in _binidx2seglist(pred):
                 ret.append((self.outlabels[int(lab2)], start2+start, stop2+start))            
-        return ret, mspec
+        return ret
+
+    def get_mel_spec(self):
+        return self.mspec
 
 
 class SpeechMusic(DnnSegmenter):
