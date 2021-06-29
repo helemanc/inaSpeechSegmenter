@@ -202,9 +202,6 @@ class DnnSegmenter:
                 ret.append((self.outlabels[int(lab2)], start2+start, stop2+start))            
         return ret
 
-    def get_mel_spec(self):
-        return self.mspec
-
 
 class SpeechMusic(DnnSegmenter):
     # Voice activity detection: requires energetic activity detection
@@ -295,7 +292,9 @@ class Segmenter:
         if self.detect_gender:
             lseg = self.gender(mspec, lseg, difflen)
 
-        return [(lab, start_sec + start * .02, start_sec + stop * .02) for lab, start, stop in lseg]
+        result = [(lab, start_sec + start * .02, start_sec + stop * .02) for lab, start, stop in lseg]
+        result.append(mspec)
+        return result
 
 
     def __call__(self, medianame, tmpdir=None, start_sec=None, stop_sec=None):
