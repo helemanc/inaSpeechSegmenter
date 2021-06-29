@@ -152,8 +152,13 @@ class DnnSegmenter:
 
         if len(batch) > 0:
             batch = np.concatenate(batch)
+
+            # 'el' is consitituted by 68 filter bank frames at 24 dimensions
             for el in batch:
                 print(len(el))
+                for filter_bank in el:
+                    print(len(filter_bank))
+
             rawpred = self.nn.predict(batch, batch_size=self.batch_size)
             print("Batch length: ", len(batch), len(rawpred))
         #print(rawpred)
