@@ -4,7 +4,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="21">
+          <list size="30">
             <item index="0" class="java.lang.String" itemvalue="numba" />
             <item index="1" class="java.lang.String" itemvalue="scipy" />
             <item index="2" class="java.lang.String" itemvalue="netifaces" />
@@ -26,6 +26,15 @@
             <item index="18" class="java.lang.String" itemvalue="Pillow" />
             <item index="19" class="java.lang.String" itemvalue="Flask" />
             <item index="20" class="java.lang.String" itemvalue="google-auth" />
+            <item index="21" class="java.lang.String" itemvalue="pandas" />
+            <item index="22" class="java.lang.String" itemvalue="scikit-image" />
+            <item index="23" class="java.lang.String" itemvalue="pyannote.algorithms" />
+            <item index="24" class="java.lang.String" itemvalue="soundfile" />
+            <item index="25" class="java.lang.String" itemvalue="pyannote.core" />
+            <item index="26" class="java.lang.String" itemvalue="pyannote.parser" />
+            <item index="27" class="java.lang.String" itemvalue="keras" />
+            <item index="28" class="java.lang.String" itemvalue="pytextgrid" />
+            <item index="29" class="java.lang.String" itemvalue="Pyro4" />
           </list>
         </value>
       </option>
