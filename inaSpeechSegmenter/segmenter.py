@@ -153,7 +153,7 @@ class DnnSegmenter:
         if len(batch) > 0:
             batch = np.concatenate(batch)
             for el in batch:
-                print(el)
+                print(len(el))
             rawpred = self.nn.predict(batch, batch_size=self.batch_size)
             print("Batch length: ", len(batch), len(rawpred))
         #print(rawpred)
