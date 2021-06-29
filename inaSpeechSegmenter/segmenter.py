@@ -136,6 +136,7 @@ class DnnSegmenter:
 
         if self.nmel < 24:
             mspec = mspec[:, :self.nmel].copy()
+
         
         patches, finite = _get_patches(mspec, 68, 2)
         if difflen > 0:
@@ -164,6 +165,8 @@ class DnnSegmenter:
             r = rawpred[:l]
             rawpred = rawpred[l:]
             r[finite[start:stop] == False, :] = 0.5
+
+            """
             print("r ", r)
             print("Len of r", len(r))
 
@@ -188,17 +191,16 @@ class DnnSegmenter:
             print(differences_speech_noise)
             print("Positive differences: ", count_positive_differences)
             print("Negative differences: ", count_negative_differences)
+            """
 
 
             pred = viterbi_decoding(np.log(r), diag_trans_exp(self.viterbi_arg, len(self.outlabels)))
 
             # try strategy
 
-            print("Len of pred", len(pred))
-            print("Pred: ", pred)
             for lab2, start2, stop2 in _binidx2seglist(pred):
                 ret.append((self.outlabels[int(lab2)], start2+start, stop2+start))            
-        return ret
+        return ret, mspec
 
 
 class SpeechMusic(DnnSegmenter):
