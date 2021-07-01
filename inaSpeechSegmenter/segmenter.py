@@ -138,6 +138,8 @@ class DnnSegmenter:
             mspec = mspec[:, :self.nmel].copy()
 
         print("Mel Spectogram ",  mspec)
+        print("Len Mel Spectogram ", len(mspec))
+
         patches, finite = _get_patches(mspec, 68, 2)
         if difflen > 0:
             patches = patches[:-int(difflen / 2), :, :]
