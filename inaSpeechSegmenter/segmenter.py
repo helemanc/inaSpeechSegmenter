@@ -139,6 +139,7 @@ class DnnSegmenter:
 
         print("Mel Spectogram ",  mspec)
         print("Len Mel Spectogram ", len(mspec))
+        print("Len first component Mel Spectogram ", len(mspec[0]))
 
         patches, finite = _get_patches(mspec, 68, 2)
         if difflen > 0:
