@@ -137,7 +137,7 @@ class DnnSegmenter:
         if self.nmel < 24:
             mspec = mspec[:, :self.nmel].copy()
 
-        
+        print("Mel Spectogram ",  mspec)
         patches, finite = _get_patches(mspec, 68, 2)
         if difflen > 0:
             patches = patches[:-int(difflen / 2), :, :]
@@ -157,6 +157,7 @@ class DnnSegmenter:
             for el in batch:
                 print(len(el))
                 for filter_bank in el:
+                    # len(filter_bank) should be 24 but it's 21 ?!
                     print(len(filter_bank))
 
             rawpred = self.nn.predict(batch, batch_size=self.batch_size)
@@ -280,7 +281,6 @@ class Segmenter:
         require input corresponding to wav file sampled at 16000Hz
         with a single channel
         """
-
 
 
 
